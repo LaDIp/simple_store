@@ -1,0 +1,7 @@
+.productsList{
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 -15px;
+}
