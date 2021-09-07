@@ -1,9 +1,15 @@
-import { defaultState, ADD_CART, INC_PRODUCT, DEC_PRODUCT } from './actionTypes'
+import {
+  defaultState,
+  ADD_PRODUCT,
+  DEL_PRODUCT,
+  INC_PRODUCT,
+  DEC_PRODUCT,
+} from './actionTypes'
 
 export const cartReducer = (state = defaultState, action) => {
   console.log(action)
   switch (action.type) {
-    case ADD_CART:
+    case ADD_PRODUCT:
       if (Object.keys(state.cart).length === 0) {
         return {
           ...state,
@@ -40,6 +46,16 @@ export const cartReducer = (state = defaultState, action) => {
           },
         }
       }
+    case DEL_PRODUCT:
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          products: state.cart.products.filter(
+            (item) => item.product.id !== action.payload.product.id
+          ),
+        },
+      }
     case INC_PRODUCT:
       return {
         ...state,
@@ -58,7 +74,10 @@ export const cartReducer = (state = defaultState, action) => {
         cart: {
           ...state.cart,
           products: state.cart.products.map((item) => {
-            if (item.product.id === action.payload.product.id)
+            if (
+              item.product.id === action.payload.product.id &&
+              item.quantity > 1
+            )
               return { ...item, quantity: item.quantity - 1 }
             return item
           }),
@@ -69,7 +88,14 @@ export const cartReducer = (state = defaultState, action) => {
   }
 }
 
-export const addCartAction = (payload) => ({ type: ADD_CART, payload: payload })
+export const addProductAction = (payload) => ({
+  type: ADD_PRODUCT,
+  payload: payload,
+})
+export const delProductAction = (payload) => ({
+  type: DEL_PRODUCT,
+  payload: payload,
+})
 export const incProductAction = (payload) => ({
   type: INC_PRODUCT,
   payload: payload,

@@ -1,4 +1,4 @@
-import { defaultState, GET_PRODUCTS } from './actionTypes'
+import { defaultState, GET_CATEGORY, GET_PRODUCTS } from './actionTypes'
 
 export const productsReducer = (state = defaultState, action) => {
   switch (action.type) {

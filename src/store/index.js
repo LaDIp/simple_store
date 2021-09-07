@@ -3,9 +3,11 @@ import { productsReducer } from './productsReducer'
 import { cartReducer } from './cartReducer.js'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
+import { categoriesReducer } from './categoriesReducer'
 
 const rootReducer = combineReducers({
   products: productsReducer,
+  categories: categoriesReducer,
   cart: cartReducer,
 })
 

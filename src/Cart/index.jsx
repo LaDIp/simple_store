@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { decProductAction, incProductAction } from '../store/cartReducer'
+import {
+  decProductAction,
+  delProductAction,
+  incProductAction,
+} from '../store/cartReducer'
 import style from './Cart.module.css'
 
 function Cart() {
@@ -10,7 +14,12 @@ function Cart() {
   const [visible, setVisible] = useState(false)
 
   const showCart = () => {
-    setVisible(Object.keys(cart).length === 0 ? visible : !visible)
+    setVisible(Object.keys(cart.products).length === 0 ? false : !visible)
+  }
+
+  const delProduct = (product) => {
+    setVisible(Object.keys(cart.products).length === 1 ? false : true)
+    dispatch(delProductAction(product))
   }
 
   const incProduct = (product) => {
@@ -52,6 +61,9 @@ function Cart() {
                   <button onClick={() => incProduct(product)}>+</button>
                 </td>
                 <td>{product.product.price}</td>
+                <td>
+                  <button onClick={() => delProduct(product)}>X</button>
+                </td>
               </tr>
             ))}
           </tbody>

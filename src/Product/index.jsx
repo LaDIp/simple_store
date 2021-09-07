@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addCartAction } from '../store/cartReducer'
-import style from './Product.module.css'
+import { addProductAction } from '../store/cartReducer'
+
+// import style from './Product.module.css'
 
 function Product({ product }) {
   const dispatch = useDispatch()
@@ -9,7 +10,7 @@ function Product({ product }) {
 
   const addCart = () => {
     let newProduct = { product: product, quantity: 1 }
-    dispatch(addCartAction(newProduct))
+    dispatch(addProductAction(newProduct))
   }
 
   return (
