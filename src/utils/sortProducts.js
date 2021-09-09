@@ -1,8 +1,8 @@
 export const sortMethods = [
-  'increase_price',
-  'decrease_price',
-  'increase_rating',
-  'decrease_rating',
+  { value: 'increase_price', title: 'Increase price' },
+  { value: 'decrease_price', title: 'Decrease price' },
+  { value: 'increase_rating', title: 'Increase rating' },
+  { value: 'decrease_rating', title: 'Decrease rating' },
 ]
 
 export const sortProducts = (method) => {

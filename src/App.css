@@ -1,5 +1,9 @@
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
 .contaner{
   max-width: 1000px;
   margin: 0 auto;
-  padding:  0px 15px;
+  padding: 0 15px;
 }

@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addProductAction } from '../store/cartReducer'
-
-// import style from './Product.module.css'
+import { addProductAction } from '../../store/cartReducer'
+import Rating from '@material-ui/lab/Rating'
+import style from './Product.module.css'
+import { Link } from 'react-router-dom'
 
 function Product({ product }) {
   const dispatch = useDispatch()
@@ -17,12 +18,21 @@ function Product({ product }) {
     <li className={style.product} id={product.id} onClick={null}>
       <img className={style.img} src={product.image} alt='' />
       <p className={style.title}>{product.title}</p>
+      <Rating
+        className={style.rating}
+        name='read-only'
+        precision={0.1}
+        value={product.rating.rate}
+        readOnly
+      />
       <p className={style.price}>${product.price}</p>
       <div className={style.buttons}>
         <button className={style.addCart} onClick={addCart}>
           Add to cart
         </button>
-        <button className={style.showMore}>Show more</button>
+        <Link to={`/product/${product.id}`} className={style.showMore}>
+          Show more
+        </Link>
       </div>
     </li>
   )
