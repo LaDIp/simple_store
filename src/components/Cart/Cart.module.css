@@ -21,3 +21,17 @@
   border: 0;
   cursor: pointer;
 }
+
+@media (max-width: 540px) { 
+  .cartButton{
+    right: 0;
+    top: 0;
+    position: fixed;
+  }
+
+  .cart {
+    z-index: 2;
+    top: 4em;
+    position: fixed;
+  }
+}

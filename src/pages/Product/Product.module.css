@@ -48,3 +48,15 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+
+
+@media (max-width: 540px) { 
+  .back{
+    left: 0;
+    top: 0;
+    position: fixed;
+  }
+}
+
+

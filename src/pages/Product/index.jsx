@@ -2,6 +2,7 @@ import Rating from '@material-ui/lab/Rating'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Cart from '../../components/Cart'
 import { addProductAction } from '../../store/cartReducer'
 import { fetchProducts } from '../../store/productsReducer'
 import style from './Product.module.css'
@@ -27,9 +28,12 @@ function Product({
 
   return (
     <div className='contaner'>
-      <Link className={style.back} to='/'>
-        &lt; Back
-      </Link>
+      <div className='panel'>
+        <Link className={style.back} to='/'>
+          &lt; Back
+        </Link>
+        <Cart />
+      </div>
       <div className={style.product}>
         <img className={style.img} src={product.image} alt='' />
         <article className={style.productArticle}>

@@ -39,7 +39,7 @@ function Home() {
   return (
     <>
       <div className='contaner'>
-        <div className={style.panel}>
+        <div className='panel'>
           <Select
             id='category'
             label='Category'
